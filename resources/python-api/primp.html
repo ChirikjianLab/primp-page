@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primp package &mdash; primp-python v0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=683873e3"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            primp-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">primp package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-primp.gora">primp.gora module</a><ul>
+<li><a class="reference internal" href="#primp.gora.GORA"><code class="docutils literal notranslate"><span class="pre">GORA</span></code></a><ul>
+<li><a class="reference internal" href="#primp.gora.GORA.get_cost_functional"><code class="docutils literal notranslate"><span class="pre">GORA.get_cost_functional()</span></code></a></li>
+<li><a class="reference internal" href="#primp.gora.GORA.get_optimal_time"><code class="docutils literal notranslate"><span class="pre">GORA.get_optimal_time()</span></code></a></li>
+<li><a class="reference internal" href="#primp.gora.GORA.get_optimal_trajectory"><code class="docutils literal notranslate"><span class="pre">GORA.get_optimal_trajectory()</span></code></a></li>
+<li><a class="reference internal" href="#primp.gora.GORA.run"><code class="docutils literal notranslate"><span class="pre">GORA.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp.primp">primp.primp module</a><ul>
+<li><a class="reference internal" href="#primp.primp.PrIMP"><code class="docutils literal notranslate"><span class="pre">PrIMP</span></code></a><ul>
+<li><a class="reference internal" href="#primp.primp.PrIMP.condition_via_pose"><code class="docutils literal notranslate"><span class="pre">PrIMP.condition_via_pose()</span></code></a></li>
+<li><a class="reference internal" href="#primp.primp.PrIMP.get_covariance_step"><code class="docutils literal notranslate"><span class="pre">PrIMP.get_covariance_step()</span></code></a></li>
+<li><a class="reference internal" href="#primp.primp.PrIMP.get_joint_pdf"><code class="docutils literal notranslate"><span class="pre">PrIMP.get_joint_pdf()</span></code></a></li>
+<li><a class="reference internal" href="#primp.primp.PrIMP.get_samples"><code class="docutils literal notranslate"><span class="pre">PrIMP.get_samples()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp.promp_interface">primp.promp_interface module</a><ul>
+<li><a class="reference internal" href="#primp.promp_interface.promp_condition"><code class="docutils literal notranslate"><span class="pre">promp_condition()</span></code></a></li>
+<li><a class="reference internal" href="#primp.promp_interface.promp_learn"><code class="docutils literal notranslate"><span class="pre">promp_learn()</span></code></a></li>
+<li><a class="reference internal" href="#primp.promp_interface.to_workspace_start"><code class="docutils literal notranslate"><span class="pre">to_workspace_start()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">primp-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">primp package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/primp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="primp-package">
+<h1>primp package<a class="headerlink" href="#primp-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primp.util.html">primp.util package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util.benchmark_util">primp.util.benchmark_util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.benchmark_util.evaluate_desired_position"><code class="docutils literal notranslate"><span class="pre">evaluate_desired_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.benchmark_util.evaluate_traj_distribution"><code class="docutils literal notranslate"><span class="pre">evaluate_traj_distribution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.benchmark_util.load_dataset_param"><code class="docutils literal notranslate"><span class="pre">load_dataset_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#primp-util-data-parser-module">primp.util.data_parser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util.finite_difference">primp.util.finite_difference module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.finite_difference.df_vect"><code class="docutils literal notranslate"><span class="pre">df_vect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.finite_difference.fd_coefficient"><code class="docutils literal notranslate"><span class="pre">fd_coefficient()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util.interp_se3_trajectory">primp.util.interp_se3_trajectory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.interp_se3_trajectory.interp_se3_trajectory_svd"><code class="docutils literal notranslate"><span class="pre">interp_se3_trajectory_svd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#primp-util-plot-util-module">primp.util.plot_util module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util.se3_distribution">primp.util.se3_distribution module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_distribution.get_covariance"><code class="docutils literal notranslate"><span class="pre">get_covariance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_distribution.get_mean"><code class="docutils literal notranslate"><span class="pre">get_mean()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util.se3_util">primp.util.se3_util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.adjoint_group"><code class="docutils literal notranslate"><span class="pre">adjoint_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.expm_se3"><code class="docutils literal notranslate"><span class="pre">expm_se3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.expm_so3"><code class="docutils literal notranslate"><span class="pre">expm_so3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.get_exp_coord"><code class="docutils literal notranslate"><span class="pre">get_exp_coord()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.get_exp_mapping"><code class="docutils literal notranslate"><span class="pre">get_exp_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.homo2pose_axang"><code class="docutils literal notranslate"><span class="pre">homo2pose_axang()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.homo2pose_quat"><code class="docutils literal notranslate"><span class="pre">homo2pose_quat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.jacobian_inv_so3_l"><code class="docutils literal notranslate"><span class="pre">jacobian_inv_so3_l()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.jacobian_so3_l"><code class="docutils literal notranslate"><span class="pre">jacobian_so3_l()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.logm_se3"><code class="docutils literal notranslate"><span class="pre">logm_se3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.logm_so3"><code class="docutils literal notranslate"><span class="pre">logm_so3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.norm_se3"><code class="docutils literal notranslate"><span class="pre">norm_se3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.skew"><code class="docutils literal notranslate"><span class="pre">skew()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primp.util.html#primp.util.se3_util.vex"><code class="docutils literal notranslate"><span class="pre">vex()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primp.util.html#module-primp.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-primp.gora">
+<span id="primp-gora-module"></span><h2>primp.gora module<a class="headerlink" href="#module-primp.gora" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="primp.gora.GORA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">primp.gora.</span></span><span class="sig-name descname"><span class="pre">GORA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.gora.GORA" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Globally Optimal Reparameterization Algorithm (GORA) for SE(3) trajectory data</p>
+<ol class="arabic simple">
+<li><p>Recovering a finite difference approximation of the change between adjacent frames of an SE(3) trajectory</p></li>
+<li><p>globally minimizing the functional of the form J = int_0^1 g(   au) dot{       au} dt</p></li>
+<li><p>reparameterizing the sequence with the optimal time steps</p></li>
+</ol>
+<p>&#64;authors: Sipu Ruan, Thomas Mitchel</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.gora.GORA.get_cost_functional">
+<span class="sig-name descname"><span class="pre">get_cost_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_tau</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.gora.GORA.get_cost_functional" title="Link to this definition"></a></dt>
+<dd><p>Compute cost functional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau</strong> – Parameterization of the trajectory</p></li>
+<li><p><strong>g_tau</strong> – SE(3) trajectory parameterized by tau</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cost functional value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.gora.GORA.get_optimal_time">
+<span class="sig-name descname"><span class="pre">get_optimal_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#primp.gora.GORA.get_optimal_time" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the optimal temporal reparameterization</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.gora.GORA.get_optimal_trajectory">
+<span class="sig-name descname"><span class="pre">get_optimal_trajectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#primp.gora.GORA.get_optimal_trajectory" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the optimal trajectory</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.gora.GORA.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#primp.gora.GORA.run" title="Link to this definition"></a></dt>
+<dd><p>Run the main routines</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-primp.primp">
+<span id="primp-primp-module"></span><h2>primp.primp module<a class="headerlink" href="#module-primp.primp" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="primp.primp.PrIMP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">primp.primp.</span></span><span class="sig-name descname"><span class="pre">PrIMP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g_demos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.primp.PrIMP" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PRIMP class for PRobabilistically-Informed Motion Primitives. It encodes demonstrated trajectories in Lie groups,
+adapts to novel via-point poses.</p>
+<p>&#64;author: Sipu Ruan</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.primp.PrIMP.condition_via_pose">
+<span class="sig-name descname"><span class="pre">condition_via_pose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g_via</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_via</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_via</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.primp.PrIMP.condition_via_pose" title="Link to this definition"></a></dt>
+<dd><p>Compute conditional distribution based on via pose</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g_via</strong> – Mean of the via pose</p></li>
+<li><p><strong>cov_via</strong> – Covariance of the via pose</p></li>
+<li><p><strong>t_via</strong> – Time parameter of the desired pose</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.primp.PrIMP.get_covariance_step">
+<span class="sig-name descname"><span class="pre">get_covariance_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#primp.primp.PrIMP.get_covariance_step" title="Link to this definition"></a></dt>
+<dd><p>Retrieve covariance of each step</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cov_step: Covariance matrix of each step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.primp.PrIMP.get_joint_pdf">
+<span class="sig-name descname"><span class="pre">get_joint_pdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#primp.primp.PrIMP.get_joint_pdf" title="Link to this definition"></a></dt>
+<dd><p>Retrieve joint distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>self._mean_joint: Mean value of the joint distribution</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>self._cov_joint: Covariance matrix of the joint distribution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="primp.primp.PrIMP.get_samples">
+<span class="sig-name descname"><span class="pre">get_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.primp.PrIMP.get_samples" title="Link to this definition"></a></dt>
+<dd><p>Generate random samples from Gaussian based on joint distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>n_sample: Number of samples</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of SE(3) trajectory samples</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-primp.promp_interface">
+<span id="primp-promp-interface-module"></span><h2>primp.promp_interface module<a class="headerlink" href="#module-primp.promp_interface" title="Link to this heading"></a></h2>
+<p>Interface for ProMP in learning trajectory distribution from demonstration</p>
+<p>&#64;author: Sipu Ruan, 2022</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.promp_interface.promp_condition">
+<span class="sig-prename descclassname"><span class="pre">primp.promp_interface.</span></span><span class="sig-name descname"><span class="pre">promp_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">promp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.promp_interface.promp_condition" title="Link to this definition"></a></dt>
+<dd><p>Compute conditioning on via points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>promp</strong> – Class object of ProMP</p></li>
+<li><p><strong>T</strong> – Time sequence that parameterizes the trajectory</p></li>
+<li><p><strong>xi</strong> – Via point coordinate</p></li>
+<li><p><strong>cov</strong> – Covariance of the via point</p></li>
+<li><p><strong>t_c</strong> – The time step of the via point</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cpromp: Class object for ProMP after conditioning</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mean: Mean trajectory after conditioning</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>std: An array of standard deviation after conditioning</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cov: An array of covariance after conditioning</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.promp_interface.promp_learn">
+<span class="sig-prename descclassname"><span class="pre">primp.promp_interface.</span></span><span class="sig-name descname"><span class="pre">promp_learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_weights_per_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.promp_interface.promp_learn" title="Link to this definition"></a></dt>
+<dd><p>Learning process from ProMP</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Time sequence</p></li>
+<li><p><strong>X</strong> – Data points in Euclidean space</p></li>
+<li><p><strong>n_weights_per_dim</strong> – Number of weights per dimension</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>promp: Class object for ProMP</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mean: Mean trajectory</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>std: An array of standard deviation</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cov: An array of covariance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.promp_interface.to_workspace_start">
+<span class="sig-prename descclassname"><span class="pre">primp.promp_interface.</span></span><span class="sig-name descname"><span class="pre">to_workspace_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_start</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.promp_interface.to_workspace_start" title="Link to this definition"></a></dt>
+<dd><p>Convert trajectory to start from a given workspace pose (only changes positions)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Time sequence for the trajectory</p></li>
+<li><p><strong>X</strong> – Data point</p></li>
+<li><p><strong>g_start</strong> – SE(3) element for the starting pose</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return X2<span class="colon">:</span></dt>
+<dd class="field-even"><p>Positional trajectory after moving to the starting position</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-primp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-primp" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Sipu Ruan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
