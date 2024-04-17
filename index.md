@@ -11,19 +11,24 @@ Published in __IEEE Transactions on Robotics (T-RO)__
 ## Introduction
 ![Cover figure]({{site.baseurl}}/resources/cover_figure.png "Cover figure"){:style="float: left;margin-right: 7px;margin-top: 7px;" height="40%" width="40%"} This paper proposes a learning-from-demonstration method using probability densities on the workspaces of robot manipulators. The method, named "PRobabilistically-Informed Motion Primitives (PRIMP)", learns the probability distribution of the end effector trajectories in the 6D workspace that includes both positions and orientations. It is able to adapt to new situations such as novel via poses with uncertainty and a change of viewing frame. The method itself is robot-agnostic, in which the learned distribution can be transferred to another robot with the adaptation to its workspace density. The learned trajectory distribution is then used to guide an optimization-based motion planning algorithm to further help the robot avoid novel obstacles that are unseen during the demonstration process. The proposed methods are evaluated by several sets of benchmark experiments. PRIMP runs more than 5 times faster while generalizing trajectories more than twice as close to both the demonstrations and novel desired poses. It is then combined with our robot imagination method that learns object affordances, illustrating the applicability of PRIMP to learn tool use through physical experiments.
 
+## Links
+- **Paper**
+  - [IEEE T-RO](https://ieeexplore.ieee.org/document/10502164){:target="_blank"}
+  - [Arxiv](https://arxiv.org/abs/2305.15761){:target="_blank"}
+  - [OpenReview (RSS 2023 workshop)](https://openreview.net/forum?id=cpT4zTZPAS){:target="_blank"}
+  - [OpenReview (ICRA 2024 workshop)](https://openreview.net/forum?id=DTu0hqvWaU){:target="_blank"}
+- **Poster**
+  - [PDF](/resources/poster-rss-workshop-l4tamp-rsp-final.pdf){:target="_blank"}
+- **Code**:
+  - Source code: [MATLAB](https://www.github.com/ChirikjianLab/primp-matlab/){:target="_blank"}, [Python](https://www.github.com/ChirikjianLab/primp-python/){:target="_blank"}
+  - Documentation: [Python API reference](/resources/python-api-v0.2.0/index.html){:target="_blank"}
+- **Presentations** 
+  - Presented in RSS 2023 workshop on [Learning for Task and Motion Planning](https://zt-yang.github.io/rss23-l4tamp-workshop/){:target="_blank"}
+
 ## Supplementary Video
 <center>
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yp1CCNiqw7w?si=apYrSeUtubTUrf7y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 </center>
-
-## Links
-- **Paper:** [Arxiv](https://arxiv.org/abs/2305.15761){:target="_blank"}, [OpenReview(2023 RSS workshop)](https://openreview.net/forum?id=cpT4zTZPAS){:target="_blank"}, [OpenReview(2024 ICRA workshop)](https://openreview.net/forum?id=DTu0hqvWaU){:target="_blank"}
-- **Poster:** [PDF](/resources/poster-rss-workshop-l4tamp-rsp-final.pdf){:target="_blank"}
-- **Code** (coming soon):
-  - Source code: [MATLAB](https://www.github.com/ChirikjianLab/primp-matlab/){:target="_blank"}, [Python](https://www.github.com/ChirikjianLab/primp-python/){:target="_blank"}
-  - Documentation
-- **Presentations:** Presented in RSS 2023 workshop on [Learning for Task and Motion Planning](https://zt-yang.github.io/rss23-l4tamp-workshop/){:target="_blank"}
- 
 
 ## Features of PRIMP:
 ### 1) Adaptation to new situations
@@ -54,5 +59,5 @@ Published in __IEEE Transactions on Robotics (T-RO)__
 <img src="https://github.com/ChirikjianLab/primp-page/assets/71541515/b3fbd871-67f7-47a9-b260-ab1a33297b3f" alt="affordance" width="400" />
 </p>
 
-
-
+## Citation
+(Coming soon)

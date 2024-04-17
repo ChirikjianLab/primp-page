@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>primp.util package &mdash; primp-python v0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=683873e3"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            primp-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">primp.util package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-primp.util.benchmark_util">primp.util.benchmark_util module</a><ul>
+<li><a class="reference internal" href="#primp.util.benchmark_util.evaluate_desired_position"><code class="docutils literal notranslate"><span class="pre">evaluate_desired_position()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.benchmark_util.evaluate_traj_distribution"><code class="docutils literal notranslate"><span class="pre">evaluate_traj_distribution()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.benchmark_util.load_dataset_param"><code class="docutils literal notranslate"><span class="pre">load_dataset_param()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#primp-util-data-parser-module">primp.util.data_parser module</a></li>
+<li><a class="reference internal" href="#module-primp.util.finite_difference">primp.util.finite_difference module</a><ul>
+<li><a class="reference internal" href="#primp.util.finite_difference.df_vect"><code class="docutils literal notranslate"><span class="pre">df_vect()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.finite_difference.fd_coefficient"><code class="docutils literal notranslate"><span class="pre">fd_coefficient()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp.util.interp_se3_trajectory">primp.util.interp_se3_trajectory module</a><ul>
+<li><a class="reference internal" href="#primp.util.interp_se3_trajectory.interp_se3_trajectory_svd"><code class="docutils literal notranslate"><span class="pre">interp_se3_trajectory_svd()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#primp-util-plot-util-module">primp.util.plot_util module</a></li>
+<li><a class="reference internal" href="#module-primp.util.se3_distribution">primp.util.se3_distribution module</a><ul>
+<li><a class="reference internal" href="#primp.util.se3_distribution.get_covariance"><code class="docutils literal notranslate"><span class="pre">get_covariance()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_distribution.get_mean"><code class="docutils literal notranslate"><span class="pre">get_mean()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp.util.se3_util">primp.util.se3_util module</a><ul>
+<li><a class="reference internal" href="#primp.util.se3_util.adjoint_group"><code class="docutils literal notranslate"><span class="pre">adjoint_group()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.expm_se3"><code class="docutils literal notranslate"><span class="pre">expm_se3()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.expm_so3"><code class="docutils literal notranslate"><span class="pre">expm_so3()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.get_exp_coord"><code class="docutils literal notranslate"><span class="pre">get_exp_coord()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.get_exp_mapping"><code class="docutils literal notranslate"><span class="pre">get_exp_mapping()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.homo2pose_axang"><code class="docutils literal notranslate"><span class="pre">homo2pose_axang()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.homo2pose_quat"><code class="docutils literal notranslate"><span class="pre">homo2pose_quat()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.jacobian_inv_so3_l"><code class="docutils literal notranslate"><span class="pre">jacobian_inv_so3_l()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.jacobian_so3_l"><code class="docutils literal notranslate"><span class="pre">jacobian_so3_l()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.logm_se3"><code class="docutils literal notranslate"><span class="pre">logm_se3()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.logm_so3"><code class="docutils literal notranslate"><span class="pre">logm_so3()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.norm_se3"><code class="docutils literal notranslate"><span class="pre">norm_se3()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.skew"><code class="docutils literal notranslate"><span class="pre">skew()</span></code></a></li>
+<li><a class="reference internal" href="#primp.util.se3_util.vex"><code class="docutils literal notranslate"><span class="pre">vex()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-primp.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">primp-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">primp.util package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/primp.util.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="primp-util-package">
+<h1>primp.util package<a class="headerlink" href="#primp-util-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-primp.util.benchmark_util">
+<span id="primp-util-benchmark-util-module"></span><h2>primp.util.benchmark_util module<a class="headerlink" href="#module-primp.util.benchmark_util" title="Link to this heading"></a></h2>
+<p>Benchmark for ProMP in learning trajectory distribution from demonstration</p>
+<p>&#64;author: Sipu Ruan</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.benchmark_util.evaluate_desired_position">
+<span class="sig-prename descclassname"><span class="pre">primp.util.benchmark_util.</span></span><span class="sig-name descname"><span class="pre">evaluate_desired_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_desired</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_via</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.benchmark_util.evaluate_desired_position" title="Link to this definition"></a></dt>
+<dd><p>Evaluate similarity between result and desired pose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_res</strong> – Resulting (Generated) trajectory</p></li>
+<li><p><strong>x_desired</strong> – The desired position</p></li>
+<li><p><strong>t_via</strong> – The time step of via point</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The distance from the desired position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.benchmark_util.evaluate_traj_distribution">
+<span class="sig-prename descclassname"><span class="pre">primp.util.benchmark_util.</span></span><span class="sig-name descname"><span class="pre">evaluate_traj_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_init</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.benchmark_util.evaluate_traj_distribution" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the generated trajectory distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_res</strong> – The resulting (generated) trajectory</p></li>
+<li><p><strong>traj_init</strong> – The initial trajectory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The distance between the generated and initial trajectory mean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.benchmark_util.load_dataset_param">
+<span class="sig-prename descclassname"><span class="pre">primp.util.benchmark_util.</span></span><span class="sig-name descname"><span class="pre">load_dataset_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.benchmark_util.load_dataset_param" title="Link to this definition"></a></dt>
+<dd><p>Load the parameters for datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_name</strong> – The name of the dataset: “panda_arm”, “lasa_handwriting/pose_data”</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The type list of the demonstration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="primp-util-data-parser-module">
+<h2>primp.util.data_parser module<a class="headerlink" href="#primp-util-data-parser-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-primp.util.finite_difference">
+<span id="primp-util-finite-difference-module"></span><h2>primp.util.finite_difference module<a class="headerlink" href="#module-primp.util.finite_difference" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.finite_difference.df_vect">
+<span class="sig-prename descclassname"><span class="pre">primp.util.finite_difference.</span></span><span class="sig-name descname"><span class="pre">df_vect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.finite_difference.df_vect" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Uses high order finite difference method to compute numerical derivatives along arbitrary dimension of an array.
+Uses Frohnberg’s method to compute coefficents.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – Elements in domain of known function values, should be a 1-D array</p></li>
+<li><p><strong>f</strong> – Known function values, f(x)</p></li>
+<li><p><strong>k</strong> – Order of the derivative</p></li>
+<li><p><strong>n_r</strong> – About half of the window size, i.e. how many points in front and behind to be considered
+when computing the derivaitve. Practically, n_r = 3 or n_r = 4 works well</p></li>
+<li><p><strong>dim</strong> – Dimension to compute the derivative along (usually temporal or spatial dimension)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return df<span class="colon">:</span></dt>
+<dd class="field-even"><p>Computed finite difference vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.finite_difference.fd_coefficient">
+<span class="sig-prename descclassname"><span class="pre">primp.util.finite_difference.</span></span><span class="sig-name descname"><span class="pre">fd_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xbar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.finite_difference.fd_coefficient" title="Link to this definition"></a></dt>
+<dd><p>Compute coefficients for finite difference approximation for the derivative of order k at xbar based on grid values
+at points in x.</p>
+<p>This function returns a row vector c of dimension 1 by n, where n=length(x), containing coefficients to approximate
+u^{(k)}(xbar), the k’th derivative of u evaluated at xbar,  based on n values of u at x(1), x(2), … x(n).</p>
+<p>If U is a column vector containing u(x) at these n points, then c*U will give the approximation to u^{(k)}(xbar).</p>
+<p>Note for k=0 this can be used to evaluate the interpolating polynomial itself.</p>
+<p>Requires length(x) &gt; k. Usually the elements x(i) are monotonically increasing and x(1) &lt;= xbar &lt;= x(n), but neither
+condition is required. The x values need not be equally spaced but must be distinct.</p>
+<p>This program should give the same results as fdcoeffV.m, but for large values of n is much more stable numerically.</p>
+<p>Based on the program “weights” in B. Fornberg, “Calculation of weights in finite difference formulas”,
+SIAM Review 40 (1998), pp. 685-691. From  <a class="reference external" href="http://www.amath.washington.edu/~rjl/fdmbook/">http://www.amath.washington.edu/~rjl/fdmbook/</a>  (2007)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – Order of derivative</p></li>
+<li><p><strong>xbar</strong> – Element in domain of known function values</p></li>
+<li><p><strong>x</strong> – The rest elements in domain of known function values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficient</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-primp.util.interp_se3_trajectory">
+<span id="primp-util-interp-se3-trajectory-module"></span><h2>primp.util.interp_se3_trajectory module<a class="headerlink" href="#module-primp.util.interp_se3_trajectory" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.interp_se3_trajectory.interp_se3_trajectory_svd">
+<span class="sig-prename descclassname"><span class="pre">primp.util.interp_se3_trajectory.</span></span><span class="sig-name descname"><span class="pre">interp_se3_trajectory_svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.interp_se3_trajectory.interp_se3_trajectory_svd" title="Link to this definition"></a></dt>
+<dd><p>Compute interpolation along an SE(3) trajectory using SVD</p>
+<p>Reference: “An SVD-Based Projection Method for Interpolation on SE(3). Calin Belta, Vijay Kumar. 2002.”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t0</strong> – Original time sequence</p></li>
+<li><p><strong>x_traj</strong> – Original SE(3) trajectory</p></li>
+<li><p><strong>t</strong> – Desired time sequence</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interpolated SE(3) trajectory</p>
+</dd>
+</dl>
+<p>&#64;author: Thomas Mitchel, 2018
+&#64;maintainer: Sipu Ruan, 2022</p>
+</dd></dl>
+
+</section>
+<section id="primp-util-plot-util-module">
+<h2>primp.util.plot_util module<a class="headerlink" href="#primp-util-plot-util-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-primp.util.se3_distribution">
+<span id="primp-util-se3-distribution-module"></span><h2>primp.util.se3_distribution module<a class="headerlink" href="#module-primp.util.se3_distribution" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_distribution.get_covariance">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_distribution.</span></span><span class="sig-name descname"><span class="pre">get_covariance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_distribution.get_covariance" title="Link to this definition"></a></dt>
+<dd><p>Compute covariance of a set of SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> – The set of SE(3) elements</p></li>
+<li><p><strong>mu</strong> – Computed mean or None</p></li>
+<li><p><strong>group_name</strong> – Name of the group</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Covariance of the set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_distribution.get_mean">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_distribution.</span></span><span class="sig-name descname"><span class="pre">get_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_distribution.get_mean" title="Link to this definition"></a></dt>
+<dd><p>Compute mean of a set of SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> – The set of SE(3) elements</p></li>
+<li><p><strong>group_name</strong> – Name of the group</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mean of the set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-primp.util.se3_util">
+<span id="primp-util-se3-util-module"></span><h2>primp.util.se3_util module<a class="headerlink" href="#module-primp.util.se3_util" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.adjoint_group">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">adjoint_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.adjoint_group" title="Link to this definition"></a></dt>
+<dd><p>Adjoint operator for groups SE(3) or PCG(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> – Group element in homogeneous matrix form</p></li>
+<li><p><strong>group_name</strong> – “SE” (default), “PCG”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Adjoint operator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.expm_se3">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">expm_se3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.expm_se3" title="Link to this definition"></a></dt>
+<dd><p>Closed-form exponential from se(3) to SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>xi</strong> – Element in se(3) of the form [omega, v]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Homogeneous transformation matrix for SE(3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.expm_so3">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">expm_so3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.expm_so3" title="Link to this definition"></a></dt>
+<dd><p>Closed-form exponential for so(3) into SO(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> – Vector for rotation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rotation matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.get_exp_coord">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">get_exp_coord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.get_exp_coord" title="Link to this definition"></a></dt>
+<dd><p>Get exponential coordinates from Lie group to Lie algebra</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>g</strong> – Homogeneous transformation matrix for poses</p></li>
+<li><p><strong>group_name</strong> – “SE” (default), “PCG”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Exponential coordinates of the form [omega, v]</p>
+</dd>
+</dl>
+<p>See also: logm_se3, logm_so3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.get_exp_mapping">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">get_exp_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_coord</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.get_exp_mapping" title="Link to this definition"></a></dt>
+<dd><p>Get the exponential mapping from Lie algebra (exponential coordinates) to Lie group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exp_coord</strong> – Exponential coordinates of the form [omega, v]</p></li>
+<li><p><strong>group_name</strong> – “SE” (default), “PCG”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Homogeneous transformation matrix</p>
+</dd>
+</dl>
+<p>See also: expm_se3, expm_so3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.homo2pose_axang">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">homo2pose_axang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.homo2pose_axang" title="Link to this definition"></a></dt>
+<dd><p>Convert SE(3) homogeneous matrix to pose vector, rotation is represented by axis-angle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> – SE(3) element</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pose vector, axis-angle order: [axis-x, axis-y, axis-z, angle]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.homo2pose_quat">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">homo2pose_quat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.homo2pose_quat" title="Link to this definition"></a></dt>
+<dd><p>Convert SE(3) homogeneous matrix to pose vector, rotation is represented by unit Quaternion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> – SE(3) element</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pose vector, quaternion order: [x, y, z, w]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.jacobian_inv_so3_l">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">jacobian_inv_so3_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.jacobian_inv_so3_l" title="Link to this definition"></a></dt>
+<dd><p>Closed-form left inverse Jacobian of SO(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> – Vector for the rotation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Closed-form left inverse Jacobian of SO(3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.jacobian_so3_l">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">jacobian_so3_l</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.jacobian_so3_l" title="Link to this definition"></a></dt>
+<dd><p>Closed-form left Jacobian of SO(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> – Vector for the rotation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Closed-form left Jacobian of SO(3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.logm_se3">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">logm_se3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.logm_se3" title="Link to this definition"></a></dt>
+<dd><p>Closed-form logarithm from SE(3) to se(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> – Homogeneous transformation matrix for SE(3)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Element in se(3) in the matrix form</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.logm_so3">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">logm_so3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[1.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">1.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">1.]])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.logm_so3" title="Link to this definition"></a></dt>
+<dd><p>Closed-form logarithm from SO(3) to so(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rot</strong> – Rotation matrix as element in SO(3)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Element in so(3) in the matrix form</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.norm_se3">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">norm_se3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.norm_se3" title="Link to this definition"></a></dt>
+<dd><p>Weighted norm of SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> – an SE(3) element</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Weighted norm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.skew">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">skew</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.skew" title="Link to this definition"></a></dt>
+<dd><p>Construct skew-symmetric matrix from vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> – Vector of size 3</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Skew-symmetric matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="primp.util.se3_util.vex">
+<span class="sig-prename descclassname"><span class="pre">primp.util.se3_util.</span></span><span class="sig-name descname"><span class="pre">vex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_hat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.],</span> <span class="pre">[0.,</span> <span class="pre">0.,</span> <span class="pre">0.]])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#primp.util.se3_util.vex" title="Link to this definition"></a></dt>
+<dd><p>Extract vector form from skew-symmetric matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w_hat</strong> – Skew-symmetric matrix</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Vector form</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-primp.util">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-primp.util" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Sipu Ruan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
