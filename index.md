@@ -27,7 +27,7 @@ Published in __IEEE Transactions on Robotics (T-RO)__
 
 ## Supplementary Video
 <center>
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yp1CCNiqw7w?si=apYrSeUtubTUrf7y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://ieeexplore.ieee.org/ielx7/8860/4359257/10502164/supp1-3390052.mp4?arnumber=10502164" title="IEEE T-RO Supplementary frameborder="0" allowfullscreen></iframe>
 </center>
 
 ## Features of PRIMP:
