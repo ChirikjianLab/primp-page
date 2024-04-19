@@ -9,7 +9,7 @@
 Published in __IEEE Transactions on Robotics (T-RO)__
 
 ## Introduction
-![Cover figure]({{site.baseurl}}/resources/cover_figure.png "Cover figure"){:style="float: left;margin-right: 7px;margin-top: 7px;" height="40%" width="40%"} This paper proposes a learning-from-demonstration method using probability densities on the workspaces of robot manipulators. The method, named "PRobabilistically-Informed Motion Primitives (PRIMP)", learns the probability distribution of the end effector trajectories in the 6D workspace that includes both positions and orientations. It is able to adapt to new situations such as novel via poses with uncertainty and a change of viewing frame. The method itself is robot-agnostic, in which the learned distribution can be transferred to another robot with the adaptation to its workspace density. The learned trajectory distribution is then used to guide an optimization-based motion planning algorithm to further help the robot avoid novel obstacles that are unseen during the demonstration process. The proposed methods are evaluated by several sets of benchmark experiments. PRIMP runs more than 5 times faster while generalizing trajectories more than twice as close to both the demonstrations and novel desired poses. It is then combined with our robot imagination method that learns object affordances, illustrating the applicability of PRIMP to learn tool use through physical experiments.
+![Cover figure]({{site.baseurl}}/resources/cover_figure.png "Cover figure"){:style="float: left;margin-right: 7px;margin-top: 7px;" height="40%" width="40%"} This paper proposes a learning-from-demonstration (LfD) method using probability densities on the workspaces of robot manipulators. The method, named PRobabilistically-Informed Motion Primitives (PRIMP), learns the probability distribution of the end effector trajectories in the 6D workspace that includes both positions and orientations. It is able to adapt to new situations such as novel via points with uncertainty and a change of viewing frame. The method itself is robot-agnostic, in that the learned distribution can be transferred to another robot with the adaptation to its workspace density. Workspace-STOMP, a new version of the existing STOMP motion planner, is also introduced, which can be used as a post-process to improve the performance of PRIMP and any other reachability-based LfD method. The combination of PRIMP and Workspace-STOMP can further help the robot avoid novel obstacles that are not present during the demonstration process. The proposed methods are evaluated with several sets of benchmark experiments. PRIMP runs more than 5 times faster than existing state-of-the-art methods while generalizing trajectories more than twice as close to both the demonstrations and novel desired poses. They are then combined with our lab's robot imagination method that learns object affordances, illustrating the applicability to learn tool use through physical experiments.
 
 ## Links
 - **Paper**
@@ -27,7 +27,7 @@ Published in __IEEE Transactions on Robotics (T-RO)__
 
 ## Supplementary Video
 <center>
-  <iframe width="560" height="315" src="https://ieeexplore.ieee.org/ielx7/8860/4359257/10502164/supp1-3390052.mp4?arnumber=10502164" title="IEEE T-RO Supplementary frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://ieeexplore.ieee.org/ielx7/8860/4359257/10502164/supp1-3390052.mp4" title="IEEE T-RO Supplementary" frameborder="0" allowfullscreen></iframe>
 </center>
 
 ## Features of PRIMP:
